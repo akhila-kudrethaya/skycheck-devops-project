@@ -22,7 +22,7 @@ jobs:
       - name: Test the Docker Build
         run: docker build -t skycheck-test .
 
-      # Step3: Sonar Code Scan
+      # Step 3: Run Sonar Scan
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
