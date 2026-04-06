@@ -21,3 +21,9 @@ jobs:
       # This proves your Dockerfile actually works!
       - name: Test the Docker Build
         run: docker build -t skycheck-test .
+
+      # Step3: Sonar Code Scan
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
