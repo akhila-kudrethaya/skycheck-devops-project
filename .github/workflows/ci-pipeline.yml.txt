@@ -1,0 +1,23 @@
+# The name of this automation "Robot"
+name: SkyCheck CI Pipeline
+
+# This tells the robot: "Wake up whenever I push new code to the main branch"
+on:
+  push:
+    branches: [ "main" ]
+
+# These are the tasks the robot will perform
+jobs:
+  test-and-build:
+    # GitHub will provide a free Linux computer for us to use
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Tell the Linux computer to download your code from GitHub
+      - name: Get the code from GitHub
+        uses: actions/checkout@v4
+
+      # Step 2: Tell the Linux computer to try building your Docker image
+      # This proves your Dockerfile actually works!
+      - name: Test the Docker Build
+        run: docker build -t skycheck-test .
