@@ -5,6 +5,7 @@ name: SkyCheck CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:  # <--- Add this line! This creates the manual button
 
 # These are the tasks the robot will perform
 jobs:
